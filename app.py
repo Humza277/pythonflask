@@ -2,12 +2,13 @@ from flask import Flask
 
 app = Flask(__name__)
 
-
+# index page, this is what is first displayed
 @app.route("/")
 def index():
     return "<h1>Welcome to my Flask project</h1>"
 
-
+# second page for the application
+# # asks for user input from within the terminal
 @app.route("/welcome_user")
 def welcome_user():
     name = input("please input username")
@@ -24,7 +25,7 @@ def welcome_user(username):
 return f"<h1>Welcome to Python flask app dear {username} </h1>"
 This is an example of how an argument could be passed through welcome user
 '''
-
+# runs the application
 if __name__ == "__main__":
     app.run(debug=True)
 
