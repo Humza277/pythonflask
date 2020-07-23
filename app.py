@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
@@ -9,11 +9,12 @@ def index():
 
 # second page for the application
 # # asks for user input from within the terminal
-@app.route("/welcome_user")
+@app.route("/user")
 def welcome_user():
-    name = input("please input username")
-
-    return "<h2>Welcome %s </h2>" % name
+    # name = input("please input username")
+    #
+    # return "<h2>Welcome %s </h2>" % name
+    return render_template('user.html')
 
 
 ''' Sohaib's User Name method
