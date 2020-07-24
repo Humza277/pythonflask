@@ -51,20 +51,23 @@ def signup():
     #     flash('wrong password')
     # return home()
 
-    #while
+    # while
+
+    return render_template('signup.html')
+
+    # POST_USERNAME = str(request.form['username'])
+    # POST_PASSWORD = str(request.form['password'])
+    # d = add_user(POST_USERNAME, POST_PASSWORD)
+    # if d:
+    #     return render_template('login.html')
 
 
-    if not session.get('logged_in'):
-        return render_template("signup.html")
-    else:
-        username = str(request.form['username'])
-        password = str(request.form['password'])
-        add_user(username, password)
-        return render_template("login.html")
-    # if add_user():
-    #     pass
-
-
+    # # engine.execute('INSERT INTO users '
+    # #                '(username, password)' 'Values ='[POST_USERNAME][POST_PASSWORD] )
+    # signupsession = sessionmaker(bind=engine)
+    # s = signupsession()
+    #
+    # s.users(User).insert().values(User.username([POST_USERNAME]), User.password([POST_PASSWORD]))
 
 
 @app.route('/logout')

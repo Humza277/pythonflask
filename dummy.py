@@ -20,9 +20,11 @@ session.add(user)
 
 
 def add_user(username, password):
-    user = User(username, password)
-    session.add(user)
-    session.commit()
+    s = sessionmaker(bind=engine)
+    se = s()
+    u = User(username, password)
+    se.add(u)
+    se.commit()
 
 
 # commit the record the database
