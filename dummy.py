@@ -18,6 +18,9 @@ session.add(user)
 user = User("jumpiness", "python")
 session.add(user)
 
+user = User("Bob", "Malone")
+session.add(user)
+
 
 def add_user(username, password):
     s = sessionmaker(bind=engine)
