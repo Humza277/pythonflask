@@ -27,11 +27,13 @@ def do_admin_login():
     s = loginsession()
     query = s.query(User).filter(User.username.in_([POST_USERNAME]), User.password.in_([POST_PASSWORD]))
     result = query.first()
+    session['attempt'] = 1
 
     if result:
         session['logged_in'] = True
     else:
-        flash('wrong password')
+        render_template('404.html')
+
     return home()
 
 
@@ -68,6 +70,12 @@ def signup():
     # s = signupsession()
     #
     # s.users(User).insert().values(User.username([POST_USERNAME]), User.password([POST_PASSWORD]))
+
+
+@app.errorhandler(404)
+def page_not_found():
+    return render_template('404.html'), 404
+
 
 
 @app.route('/logout')
